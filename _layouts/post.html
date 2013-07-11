@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="post">
+    <h3 class="post-title">
+        <a href="{{ post.url }}">
+            {{ page.title }}
+        </a>
+    </h3>
+
+    <div class="post-content">
+{{ content }}
+    </div>
+
+    <div class="post-meta">
+        <p class="post-categories-title">Categories:</p>
+        <ul class="post-categories">
+{% for category in page.categories %}
+            <li class="post-category">{{ category }}</li>
+{% endfor %}
+        </ul>
+
+        <time class="post-time" datetime="{{ page.date | date:'%Y-%m-%d %H:%M:%S' }}" pubdate>
+            Published on {{ page.date | date_to_string }}
+        </time>
+    </div>
+</article>

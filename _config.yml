@@ -1,0 +1,20 @@
+name: Iszak Bryan
+pygments: true
+
+
+author:
+  name: Iszak Bryan
+  github: iszak
+  twitter: iszak
+  gplus: +iszak
+
+
+assets:
+  js_compressor: uglifier
+  css_compressor: sass
+
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+    - _assets/fonts
