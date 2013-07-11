@@ -8,6 +8,7 @@ author:
   twitter: iszak
   gplus: +iszak
 
+exclude: ['vendor']
 
 assets:
   js_compressor: uglifier
