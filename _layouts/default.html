@@ -17,31 +17,31 @@
 
 
 
-        <div class="container-fluid">
-            <header class="row-fluid">
-                <div class="span4 brand" role="banner">
-                    <h1>{{ site.name }}</h1>
-                    <h2>Web Application Developer</h2>
+        <div class="container-fluid site">
+            <header class="row-fluid header">
+                <div class="span4 title" role="banner">
+                    <h1 class="title-name">{{ site.name }}</h1>
+                    <h2 class="title-tagline">Web Application Developer</h2>
                 </div>
 
 
                 <div class="span8">
-                    <nav role="navigation">
-                        <ul>
-                            <li>
-                                <a href="{{ site.baseurl }}">
+                    <nav class="nav" role="navigation">
+                        <ul class="nav-list">
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="{{ site.baseurl }}">
                                     Home
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="{{ site.baseurl }}about.html">
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="{{ site.baseurl }}about.html">
                                     About
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="{{ site.baseurl }}contact.html">
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="{{ site.baseurl }}contact.html">
                                     Contact
                                 </a>
                             </li>
@@ -52,33 +52,33 @@
 
 
             <div class="row-fluid">
-                <main class="span8" role="main">
+                <main class="span8 main" role="main">
 {{ content }}
                 </main>
 
 
 
                 <div class="span4">
-                    <aside>
-                        <h4>Latest blog posts</h4>
-                        <ul>
+                    <aside class="latest">
+                        <h4 class="latest-title">Latest blog posts</h4>
+                        <ul class="latest-posts">
 {% for post in site.posts offset: 0 limit: 6 %}
-                            <li class="post-title">
-                                <a href="{{ post.url }}">
+                            <li class="latest-post">
+                                <a class="latest-post-link" href="{{ post.url }}">
 {% if post.layout == 'post' %}
-                                    <i class="icon-file-text-alt"></i>
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
 {% endif %}
 
 {% if post.layout == 'link' %}
-                                    <i class="icon-link"></i>
+                                    <i class="latest-post-icon icon-link"></i>
 {% endif %}
 
 {% if post.layout == 'series' %}
-                                    <i class="icon-list"></i>
+                                    <i class="latest-post-icon icon-list"></i>
 {% endif %}
                                     {{ post.title }}
 
-                                    <time datetime="{{ post.date | date:'%Y-%m-%d %H:%M:%S' }}" pubdate>
+                                    <time class="latest-post-time" datetime="{{ post.date | date:'%Y-%m-%d %H:%M:%S' }}" pubdate>
                                         {{ post.date | date_to_string }}
                                     </time>
                                 </a>
@@ -93,27 +93,29 @@
 
             <footer>
                 <div class="row-fluid">
-                    <div class="span12 ribbon">
-                        <ul class="networks">
-                            <li class="network">
-                                <a class="network-link" href="https://github.com/{{ site.author.github }}">
-                                    <i class="network-icon icon-github-alt"></i>
-                                    GitHub
-                                </a>
-                            </li>
-                            <li class="network">
-                                <a class="network-link" href="http://twitter.com/{{ site.author.twitter }}">
-                                    <i class="network-icon icon-twitter"></i>
-                                    Twitter
-                                </a>
-                            </li>
-                            <li class="network">
-                                <a class="network-link" href="http://twitter.com/{{ site.author.gplus }}">
-                                    <i class="network-icon icon-google-plus"></i>
-                                    Google+
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="span12">
+                        <div class="ribbon">
+                            <ul class="networks">
+                                <li class="network">
+                                    <a class="network-link" href="https://github.com/{{ site.author.github }}">
+                                        <i class="network-icon icon-github-alt"></i>
+                                        GitHub
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="http://twitter.com/{{ site.author.twitter }}">
+                                        <i class="network-icon icon-twitter"></i>
+                                        Twitter
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="http://twitter.com/{{ site.author.gplus }}">
+                                        <i class="network-icon icon-google-plus"></i>
+                                        Google+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

@@ -6,7 +6,7 @@
 
 
 
-.container-fluid {
+.site {
     @include border-radius(
         0px 0px 8px 8px
     );
@@ -59,7 +59,7 @@
 
 
 
-header {
+.header {
     @include background(
         linear-gradient(top, #ebebeb, #f3f3f3)
     );
@@ -70,11 +70,12 @@ header {
     }
 }
 
-.brand {
+
+.title {
     overflow: hidden;
 }
 
-.brand h1 {
+.title-name {
     color: #005580;
     margin-top: 25px;
     text-align: center;
@@ -85,7 +86,7 @@ header {
     }
 }
 
-.brand h2 {
+.title-tagline {
     color: #005580;
     margin-top: 2px;
     text-align: center;
@@ -97,7 +98,8 @@ header {
 }
 
 
-nav {
+// Navigation
+.nav {
     text-align: center;
     margin: 20px 0 0 32px;
 
@@ -107,7 +109,7 @@ nav {
     }
 }
 
-nav ul {
+.nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -117,7 +119,7 @@ nav ul {
     }
 }
 
-nav li {
+.nav-list-item {
     display: inline-block;
     margin-right: 5px;
 
@@ -134,7 +136,7 @@ nav li {
     }
 }
 
-nav a {
+.nav-list-item-link {
     color: #686868;
     font-size: 16px;
     font-family: 'Myriad Pro';
@@ -150,12 +152,13 @@ nav a {
 
 
 
-main {
+.main {
     padding: 25px 34px;
 }
 
 
-aside {
+// Latest posts
+.latest {
     background-color: #efefef;
     border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
@@ -166,18 +169,18 @@ aside {
     }
 }
 
-aside h4 {
+.latest-title {
     border-bottom: 1px solid #e6e6e6;
     padding: 16px 14px 10px;
 }
 
-aside ul {
+.latest-posts {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-aside li {
+.latest-post {
     @include background(
         linear-gradient(top, #ececec, #f3f3f3)
     );
@@ -185,7 +188,7 @@ aside li {
     border-bottom: 1px solid #e6e6e6;
 }
 
-aside a {
+.latest-post-link {
     color: #9f9d9d;
     display: block;
     font-size: 14px;
@@ -197,20 +200,20 @@ aside a {
     &:hover {
         text-decoration: none;
 
-        i,
-        time {
+        .latest-post-icon,
+        .latest-post-time {
             color: #9f9d9d;
         }
     }
 }
 
-aside i {
+.latest-post-icon {
     float: left;
     font-size: 20px;
     padding: 2px 15px 15px;
 }
 
-aside time {
+.latest-post-time {
     display: block;
     font-size: 12px;
     font-weight: normal;
@@ -219,10 +222,10 @@ aside time {
 }
 
 
+// Post
 .post {
 
 }
-
 
 .post-categories-title {
     font-size: 13px;
@@ -260,6 +263,7 @@ aside time {
 
 
 
+// Page
 .page-time {
     display: block;
     font-size: 11px;
@@ -267,6 +271,7 @@ aside time {
 }
 
 
+// Footer
 footer {
     position: relative;
 }
