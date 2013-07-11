@@ -267,6 +267,10 @@ aside time {
 }
 
 
+footer {
+    position: relative;
+}
+
 .networks {
     @include background(
         linear-gradient(
@@ -334,8 +338,12 @@ aside time {
     font-family: 'Myriad Pro';
     font-size: 11px;
     line-height: 1;
-    margin: 12px 0;
+    margin: 12px 0 0;
     text-align: center;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 12px;
+    }
 }
 
 
