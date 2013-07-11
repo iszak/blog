@@ -1,6 +1,8 @@
 name: Iszak Bryan
+
 pygments: true
 
+permalink: /:year/:month/:day/:title.html
 
 author:
   name: Iszak Bryan
