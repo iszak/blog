@@ -6,7 +6,12 @@ title: Web Application Developer
 {% for post in site.posts offset: 0 limit: 5 %}
 <article class="post">
     <h3 class="post-title">
+{% if post.layout == 'link' %}
+        <a href="{{ post.link }}">
+            <i class="icon-external-link"></i>
+{% else %}
         <a href="{{ post.url }}">
+{% endif %}
             {{ post.title }}
         </a>
     </h3>
