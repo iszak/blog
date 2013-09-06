@@ -95,7 +95,7 @@ Finally, the tool that will use all these components.
 
 
 ### Generating
-Now to generate an image of your schema you need to provide a host, engine, d
+Now to generate an image of your schema you need to provide a host, engine,
 database name, username and password. I've created a sample script below which
 I use just populate your details and run "python /path/to/file.py"
 
