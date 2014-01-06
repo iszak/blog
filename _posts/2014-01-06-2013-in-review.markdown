@@ -2,7 +2,7 @@
 layout: post
 title:  "2013 In Review"
 date:   2014-01-06 1:21:00
-categories: macports sqlachemy schema graph
+categories: 2013 review
 ---
 This is the first time I've written a review of the previous year, possibly because I don't write often as you can see by the lack of blog posts. I decided to do it so I evaluate last year and see if this year I have achieved the goals I have set out to do, so here is 2013 in a review.
 
@@ -21,7 +21,7 @@ I am disappointed with how little I've achieved on side projects this year, alth
 
 
 #### Development Environment
-Towards the end of the year I realised that not all the developers had the same development environment and because of this, occasionally we got the "it works on my machine" problem. We normally use a guide to setup our development environment with [Macports][2] but this is quite long, tideous and error prone so some developers opted for [MAMP][3]. I wanted an easier solution, so I started looking for one, I found [Vagrant][4] and decided to start playing around with it.
+Towards the end of the year I realised that not all the developers had the same development environment and because of this, occasionally we got the "it works on my machine" problem. We normally use a guide to setup our development environment with [Macports][2] but this is quite long, tedious and error prone so some developers opted for [MAMP][3]. I wanted an easier solution, so I started looking for one, I found [Vagrant][4] and decided to start playing around with it.
 
 After writing a thousand line plus bash script to provision my virtual machine I realised this wasn't portable as it required the developers to have intricate knowledge of all the commands, what I needed was a domain specific language. So I did some investigation and after a discussion with the IT team it was decided on [Puppet][5] because of the support and maturity.
 
@@ -32,7 +32,7 @@ Again, I invested many hours learning Puppet and writing manifests and classes t
 ### Forward
 
 #### Side Projects
-I want to see atleast one side project launched this year and a landing page does not count. I know it's not hard, but I am a perfectionist, I want to ensure it's perfect but hopefully my reading will help me get over this problem.
+I want to see at least one side project launched this year and a landing page does not count. I know it's not hard, but I am a perfectionist, I want to ensure it's perfect but hopefully my reading will help me get over this problem.
 
 
 #### Development Environment

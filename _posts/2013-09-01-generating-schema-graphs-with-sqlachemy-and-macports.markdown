@@ -18,13 +18,13 @@ Finally someone recommended today [SQL Alchemy][3] with
 encounter in the Python world and I knew it was a solid choice. I was sold and
 so these are the steps I took to get it installed on my setup
 
-Please note this guide makes the assumption you're using **MacPorts on OSX with Python 2.7 and Pip**
+Please note this guide makes the assumption you're using **MacPorts on OS X with Python 2.7 and Pip**
 
 
 
 ### GraphViz
 SQL Alchemy depends on [GraphViz][5], which is available in MacPorts, but for some
-reason it requires you to deactive "nawk" port to install it, why it couldn't do
+reason it requires you to deactivate "nawk" port to install it, why it couldn't do
 this automatically and then re-active it is beyond me, perhaps it's a bug. If
 you don't have nawk you can simply run sudo port install graphviz.
 
@@ -131,7 +131,7 @@ That's it, you've now got an image of your database schema with relationships
 and indexes or data types depending on your configuration. Hopefully I didn't
 miss any of the dependencies as when I was installing this it was a lot of trial
 and error. If you do spot an error contact me on Twitter and I'll happily edit
-it with creditation.
+it with accreditation.
 
 [1]: http://www.navicat.com/products/navicat-data-modeler
 [2]: http://www.macports.org/
