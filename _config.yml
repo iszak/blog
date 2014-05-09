@@ -1,7 +1,9 @@
-name: Iszak Bryan
+title: Iszak Bryan
+description: "Web Application Developer"
+baseurl: ""
+url: "http://iszak.net"
 
-pygments: true
-
+highlighter: true
 permalink: /:year/:month/:day/:title.html
 
 author:
@@ -10,7 +12,8 @@ author:
   twitter: iszak
   gplus: 100069654061825702190
 
-exclude: ['vendor']
+
+gems: [jekyll-assets]
 
 assets:
   js_compressor: uglifier

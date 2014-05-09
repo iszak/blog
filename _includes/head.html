@@ -1,0 +1,17 @@
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="{{ site.author.name }}">
+
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+        {% stylesheet vendor.css %}
+        {% stylesheet application.css %}
+
+        {% if page.title %}
+        <title>{{ site.title }} - {{ page.title }}</title>
+        {% else %}
+        <title>{{ site.title }}</title>
+        {% endif %}
+    </head>
