@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="page">
+    <h3 class="page-title">
+        {{ page.title }}
+    </h3>
+
+    <div class="page-content">
+{{ content }}
+    </div>
+
+    <div class="page-meta">
+        <time class="page-time" datetime="{{ page.date | date:'%Y-%m-%d %H:%M:%S' }}" pubdate>
+            Updated on {{ page.date | date_to_string }}
+        </time>
+    </div>
+</article>

@@ -1,0 +1,384 @@
+@import 'compass';
+
+@import 'mixins';
+@import 'fonts';
+@import 'bases';
+
+
+
+.site {
+    @include border-radius(
+        0px 0px 8px 8px
+    );
+    background-color: #ffffff;
+    padding: 0;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    max-width: 960px;
+
+    &:before {
+        @include background-image(
+            radial-gradient(
+                center bottom,
+                rgba(255, 255, 255, 0.3) 0,
+                rgba(255, 255, 255, 0) 75%
+            )
+        );
+        top: -15px;
+        height: 15px;
+        position: absolute;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+            top: -65px;
+            height: 65px;
+        }
+    }
+
+    &:after {
+        @include background-image(
+            radial-gradient(
+                center top,
+                rgba(0, 0, 0, 0.5) 0,
+                rgba(0, 0, 0, 0) 75%
+            )
+        );
+        bottom: -20px;
+        height: 20px;
+        position: absolute;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+            bottom: -40px;
+            height: 40px;
+        }
+    }
+}
+
+
+
+.header {
+    @include background(
+        linear-gradient(top, #ebebeb, #f3f3f3)
+    );
+    border-top: 4px solid #336997;
+
+    @media (min-width: 1024px) {
+        height: 85px;
+    }
+}
+
+
+.title {
+    overflow: hidden;
+}
+
+.title-name {
+    color: #005580;
+    margin-top: 25px;
+    text-align: center;
+
+    @media (min-width: 1024px) {
+        margin-left: 32px;
+        text-align: left;
+    }
+}
+
+.title-tagline {
+    color: #005580;
+    margin-top: 2px;
+    text-align: center;
+
+    @media (min-width: 1024px) {
+        margin-left: 32px;
+        text-align: left;
+    }
+}
+
+
+// Navigation
+.nav {
+    text-align: center;
+    margin: 20px 0 0;
+
+    @media (min-width: 1024px) {
+        margin: 0 0 0 32px;
+        text-align: left;
+    }
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 1024px) {
+        float: right;
+    }
+}
+
+.nav-list-item {
+    display: inline-block;
+    margin-right: 5px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @media (min-width: 1024px) {
+        &:last-child {
+            margin-right: 10px;
+        }
+    }
+}
+
+.nav-list-item-link {
+    color: #686868;
+    font-size: 16px;
+    font-family: 'Myriad Pro';
+    font-weight: bold;
+    padding: 12px 20px 10px;
+
+
+    @media (min-width: 1024px) {
+        display: block;
+        padding: 35px 22px 30px;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+    }
+}
+
+
+
+
+.main {
+    padding: 25px 34px;
+}
+
+
+// Latest posts
+.latest {
+    background-color: #efefef;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-top: 2px solid #444444;
+
+    @media (min-width: 1024px) {
+        margin: 20px 20px 0 10px;
+    }
+}
+
+.latest-title {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 16px 14px 10px;
+}
+
+.latest-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.latest-post {
+    @include background(
+        linear-gradient(top, #ececec, #f3f3f3)
+    );
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.latest-post-link {
+    color: #9f9d9d;
+    display: block;
+    font-size: 14px;
+    font-family: 'Myriad Pro';
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px 20px 10px 0;
+
+    &:hover {
+        text-decoration: none;
+
+        .latest-post-icon,
+        .latest-post-time {
+            color: #9f9d9d;
+        }
+    }
+}
+
+.latest-post-icon {
+    float: left;
+    font-size: 20px;
+    padding: 2px 15px 15px;
+}
+
+.latest-post-time {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+
+// Post
+.post {
+    margin-bottom: 40px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.post-categories-title {
+    font-size: 13px;
+    font-weight: bold;
+    display: inline;
+    margin: 0;
+}
+
+.post-categories {
+    font-size: 13px;
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-category {
+    display: inline;
+}
+
+.post-category:after {
+    content: ', ';
+}
+
+.post-category:last-child:after {
+    content: '';
+}
+
+
+.post-time {
+    display: block;
+    font-size: 11px;
+    font-style: italic;
+}
+
+
+
+// Page
+.page-time {
+    display: block;
+    font-size: 11px;
+    font-style: italic;
+}
+
+
+// Footer
+footer {
+    position: relative;
+}
+
+.networks {
+    @include background(
+        linear-gradient(
+            #42739c 0%,
+            #3c6d96 50%,
+            #386a94 51%,
+            #31648e 100%
+        )
+    );
+
+    height: 60px;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        float: right;
+        @include calc('width', '100% + 2em');
+        margin-right: -1em;
+    }
+}
+
+.network {
+    box-sizing: border-box;
+    float: left;
+    font-family: 'Myriad Pro';
+    padding: 13px 4px;
+    width: 33%;
+
+    &:first-child {
+        padding-left: 13px;
+    }
+
+    @media (min-width: 1024px) {
+        width: auto;
+    }
+}
+
+.network-link {
+    @include border-radius(3px);
+    background-color: #305979;
+    color: #ffffff;
+    display: block;
+    font-weight: bold;
+    padding: 9px 12px 5px;
+
+    &:hover {
+        color: #ffffff;
+    }
+
+    @media (min-width: 1024px) {
+        display: inline-block;
+    }
+}
+
+.network-icon {
+    margin-right: 5px;
+}
+
+
+
+.copyright {
+    font-family: 'Myriad Pro';
+    font-size: 11px;
+    line-height: 1;
+    margin: 12px 0 0;
+    text-align: center;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 12px;
+    }
+}
+
+
+
+@media (min-width: 1024px) {
+    .ribbon:before,
+    .ribbon:after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-style: solid;
+        top: -1em;
+    }
+
+    .ribbon:before {
+        left: -1em;
+        border-width: 0 0 1em 1em;
+        border-color: transparent transparent #32516b transparent;
+    }
+
+    .ribbon:after {
+        right: -1em;
+        border-width: 1em 0 0 1em;
+        border-color: transparent transparent transparent #32516b;
+    }
+}
