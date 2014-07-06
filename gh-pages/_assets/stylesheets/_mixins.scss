@@ -1,4 +1,0 @@
-@mixin calc($property, $calc) {
-    #{$property}: -webkit-calc(#{$calc});
-    #{$property}: calc(#{$calc});
-}
