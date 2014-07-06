@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% include head.html %}
+    <body>
+
+
+
+        <div class="container-fluid site">
+{% include header.html %}
+
+
+            <div class="row-fluid">
+                <main class="span8 main" role="main">
+{{ content }}
+                </main>
+
+
+{% include sidebar.html %}
+            </div>
+
+{% include footer.html %}
+        </div>
+
+
+
+{% include foot.html %}
+    </body>
+</html>

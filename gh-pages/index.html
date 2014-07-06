@@ -1,0 +1,29 @@
+---
+layout: default
+title: Web Application Developer
+---
+
+{% for post in site.posts offset: 0 limit: 5 %}
+<article class="post">
+    <h3 class="post-title">
+{% if post.layout == 'link' %}
+        <a href="{{ post.link }}">
+            <i class="icon-external-link"></i>
+{% else %}
+        <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+{% endif %}
+            {{ post.title }}
+        </a>
+    </h3>
+
+    <div class="post-content">
+{{ post.content }}
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="{{ post.date | date:'%Y-%m-%d %H:%M:%S' }}">
+            Published on {{ post.date | date_to_string }}
+        </time>
+    </div>
+</article>
+{% endfor %}
