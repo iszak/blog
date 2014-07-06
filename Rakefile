@@ -25,7 +25,7 @@ namespace :site do
     # Copy to gh-pages dir.
     puts "Copying site to gh-pages branch..."
     Dir.glob("*") do |path|
-      next if path.include? "_site"
+      next if path.include? "gh-pages"
       sh "cp -R #{path} gh-pages/"
     end
 
