@@ -5,6 +5,14 @@ require "bundler/setup"
 require "jekyll"
 
 namespace :site do
+  desc "Generate blog files"
+  task :generate do
+    Jekyll::Site.new(Jekyll.configuration({
+      "source"      => ".",
+      "destination" => "gh-pages"
+    })).process
+  end
+
   desc "Commit the local site to the gh-pages branch and publish to GitHub Pages"
   task :publish do
     # Ensure the gh-pages dir exists so we can generate into it.
