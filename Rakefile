@@ -1,50 +1,40 @@
 require "rubygems"
-require "rake"
+require "tmpdir"
 
 require "bundler/setup"
 require "jekyll"
+
+
+# Change your GitHub reponame
+GITHUB_REPONAME = "iszak/blog"
+
 
 namespace :site do
   desc "Generate blog files"
   task :generate do
     Jekyll::Site.new(Jekyll.configuration({
       "source"      => ".",
-      "destination" => "gh-pages"
+      "destination" => "_site"
     })).process
   end
 
-  desc "Commit the local site to the gh-pages branch and publish to GitHub Pages"
+
+  desc "Generate and publish blog to gh-pages"
   task :publish => [:generate] do
-    # Ensure the gh-pages dir exists so we can generate into it.
-    puts "Checking for gh-pages dir..."
-    unless File.exist?("./gh-pages")
-      puts "No gh-pages directory found. Run the following commands first:"
-      puts "  `git clone git@github.com:iszak/blog.git gh-pages"
-      puts "  `cd gh-pages"
-      puts "  `git checkout gh-pages`"
-      exit(1)
-    end
+    Dir.mktmpdir do |tmp|
+      cp_r "_site/.", tmp
 
-    # Ensure gh-pages branch is up to date.
-    Dir.chdir('gh-pages') do
-      sh "git pull origin gh-pages"
-    end
+      pwd = Dir.pwd
+      Dir.chdir tmp
 
-    # Copy to gh-pages dir.
-    puts "Copying site to gh-pages branch..."
-    Dir.glob("*") do |path|
-      next if path.include? "gh-pages"
-      sh "cp -R #{path} gh-pages/"
-    end
+      system "git init"
+      system "git add ."
+      message = "Site updated at #{Time.now.utc}"
+      system "git commit -m #{message.inspect}"
+      system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
+      system "git push origin master:refs/heads/gh-pages --force"
 
-    # Commit and push.
-    puts "Committing and pushing to GitHub Pages..."
-    sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir('gh-pages') do
-      sh "git add ."
-      sh "git commit --allow-empty -m 'Updating to #{sha}.'"
-      sh "git push origin gh-pages"
+      Dir.chdir pwd
     end
-    puts 'Done.'
   end
 end
