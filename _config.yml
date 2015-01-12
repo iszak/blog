@@ -24,3 +24,5 @@ assets:
     - _assets/stylesheets
     - _assets/images
     - _assets/fonts
+
+exclude: ['vendor']
