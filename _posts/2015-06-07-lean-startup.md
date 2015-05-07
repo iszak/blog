@@ -2,7 +2,7 @@
 layout: post
 title:  "Lean Start Up"
 date:   2015-02-19 23:27:13
-categories: books lean
+categories: books lean startup analytics
 ---
 
 I read [The Lean Startup][1] a few weekends ago and it got me  excited for developing in a lean way, what is the lean way? Well the way I understood it, it was trying to fail as fast as you can so you can learn from those failings and proving what you're doing matters with actionable metrics.
