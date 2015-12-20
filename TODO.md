@@ -1,2 +1,5 @@
 - Fix radial-gradient
 - Add publish support to travis-ci
+- Remove rails style require in vendor
+- Upgrade / remove bootstrap
+- Upgrade / remove font-awesome
