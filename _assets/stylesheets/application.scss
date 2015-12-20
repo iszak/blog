@@ -19,13 +19,13 @@
     max-width: 960px;
 
     &:before {
-        @include background-image(
+        /*@include background-image(
             radial-gradient(
                 center bottom,
                 rgba(255, 255, 255, 0.3) 0,
                 rgba(255, 255, 255, 0) 75%
             )
-        );
+        );*/
         top: -15px;
         height: 15px;
         position: absolute;
@@ -38,13 +38,13 @@
     }
 
     &:after {
-        @include background-image(
+        /*@include background-image(
             radial-gradient(
                 center top,
                 rgba(0, 0, 0, 0.5) 0,
                 rgba(0, 0, 0, 0) 75%
             )
-        );
+        );*/
         bottom: -20px;
         height: 20px;
         position: absolute;

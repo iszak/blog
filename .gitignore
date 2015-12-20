@@ -2,6 +2,7 @@
 
 .bundle/
 .sass-cache/
+.asset-cache/
 _site/
 vendor/
 gh-pages/
