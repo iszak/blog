@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2
+
+branches:
+  only:
+    - master
+
+script:
+  - bundle exec rake site:generate
