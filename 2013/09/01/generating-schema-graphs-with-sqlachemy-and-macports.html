@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Iszak Bryan">
+
+        <link rel="alternate" type="application/rss+xml" title="Iszak Bryan" href="http://iszak.net/feed.xml">
+
+        <link type="text/css" rel="stylesheet" href="/assets/vendor.css">
+        <link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+        
+        <title>Iszak Bryan - Generating schema graphs with SQLAlchemy and Macports</title>
+        
+    </head>
+
+    <body>
+
+
+
+        <div class="container-fluid site">
+            <header class="row-fluid header">
+                <div class="span4 title" role="banner">
+                    <h1 class="title-name">Iszak Bryan</h1>
+                    <h2 class="title-tagline">Web Application Developer</h2>
+                </div>
+
+
+                <div class="span8">
+                    <nav class="nav" role="navigation">
+                        <ul class="nav-list">
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="/">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="about.html">
+                                    About
+                                </a>
+                            </li>
+
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="contact.html">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+
+
+            <div class="row-fluid">
+                <main class="span8 main" role="main">
+<article class="post">
+    <h3 class="post-title">
+        <a href="">
+            Generating schema graphs with SQLAlchemy and Macports
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>For a while now I’ve been looking for a tool which I could point to a database
+and it will generate a schema graph, now I usually use <a href="http://www.navicat.com/products/navicat-data-modeler">Navicat Data Modeler</a>
+to initially design schemas which has this functionality but costs a premium
+of which I could not justify. So I went looking for an open source alternative,
+unfortunately most of the dependencies that these open source tools required
+weren’t available in the <a href="http://www.macports.org/">MacPorts</a> repository or I had difficulties
+installing them.</p>
+
+<p>Finally someone recommended today <a href="http://www.sqlalchemy.org/">SQL Alchemy</a> with
+<a href="http://www.sqlalchemy.org/trac/wiki/UsageRecipes/SchemaDisplay">SQL Alchemy Schema Display</a> which I have heard of before in my brief
+encounter in the Python world and I knew it was a solid choice. I was sold and
+so these are the steps I took to get it installed on my setup</p>
+
+<p>Please note this guide makes the assumption you’re using <strong>MacPorts on OS X with Python 2.7 and Pip</strong></p>
+
+<h3 id="graphviz">GraphViz</h3>
+<p>SQL Alchemy depends on <a href="http://www.graphviz.org/">GraphViz</a>, which is available in MacPorts, but for some
+reason it requires you to deactivate “nawk” port to install it, why it couldn’t do
+this automatically and then re-active it is beyond me, perhaps it’s a bug. If
+you don’t have nawk you can simply run sudo port install graphviz.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo port install nawk
+    sudo port deactivate nawk
+    sudo port install graphviz
+    sudo port activate nawk</code></pre></figure>
+
+<h3 id="database-support">Database support</h3>
+<p>Depending on what database you want to connect to you will need to install the
+required driver, I use MySQL at my place of employment but PostgreSQL personally
+so I needed both.</p>
+
+<h4 id="mysql">MySQL</h4>
+<p>To enable MySQL support you need mysql_config in your $PATH variable, in my case
+MacPorts names mysql_config to mysql_config5 to possibly prevent conflicts. An
+alias may work, but I decided to create a symbolic link, if anyone knows of a
+better solution let me know.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo ln -s /usr/local/bin/mysql_config /opt/local/bin/mysql_config5
+    sudo pip install mysql-python</code></pre></figure>
+
+<h4 id="postgresql">PostgreSQL</h4>
+<p>To enable PostgreSQL support you need to install this pip module, no issues.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo pip install psycopg2</code></pre></figure>
+
+<h3 id="pyparsing">PyParsing</h3>
+<p>Another dependency is pyparsing, however by default MacPorts installs the latest
+which is 2.x and will not work with Python 2.7 it seems.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo pip uninstall pyparsing
+    sudo pip install pyparsing==1.5.7</code></pre></figure>
+
+<h3 id="pydot">PyDot</h3>
+<p>SQL Alchemy Schema Display depends directly on PyDot but PyDot indirectly depends
+on PyParsing so we need both.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo pip install pydot</code></pre></figure>
+
+<h3 id="sqlalchemy">SqlAlchemy</h3>
+<p>Finally, the tool that will use all these components.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo pip install sqlalchemy
+    sudo pip install sqlalchemy_schemadisplay</code></pre></figure>
+
+<h3 id="generating">Generating</h3>
+<p>Now to generate an image of your schema you need to provide a host, engine,
+database name, username and password. I’ve created a sample script below which
+I use just populate your details and run “python /path/to/file.py”</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">from sqlalchemy import MetaData
+    from sqlalchemy_schemadisplay import create_schema_graph
+
+    # Database
+    host     = &#39;localhost&#39;
+    engine   = &#39;postgresql&#39;
+    database = &#39;database&#39;
+    username = &#39;username&#39;
+    password = &#39;password&#39;
+
+    # General
+    data_types = False
+    indexes    = False
+
+
+    # Generation
+    dsn = engine + &#39;://&#39; + username + &#39;:&#39; + password + &#39;@&#39; + host + &#39;/&#39; + database;
+
+    graph = create_schema_graph(
+      metadata       = MetaData(dsn),
+      show_datatypes = data_types,
+      show_indexes   = indexes
+    )
+
+    graph.write_png(&#39;schema.png&#39;)</code></pre></figure>
+
+<p>That’s it, you’ve now got an image of your database schema with relationships
+and indexes or data types depending on your configuration. Hopefully I didn’t
+miss any of the dependencies as when I was installing this it was a lot of trial
+and error. If you do spot an error contact me on Twitter and I’ll happily edit
+it with accreditation.</p>
+
+
+    </div>
+
+    <div class="post-meta">
+        <p class="post-categories-title">Categories:</p>
+        <ul class="post-categories">
+
+            <li class="post-category">macports</li>
+
+            <li class="post-category">sqlachemy</li>
+
+            <li class="post-category">schema</li>
+
+            <li class="post-category">graph</li>
+
+        </ul>
+
+        <time class="post-time" datetime="2013-09-01 23:35:00">
+            Published on 01 Sep 2013
+        </time>
+    </div>
+</article>
+
+                </main>
+
+
+                <div class="span4">
+                    <aside class="latest">
+                        <h4 class="latest-title">Latest blog posts</h4>
+                        <ul class="latest-posts">
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2016/01/02/working-with-rust.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Dabbling with rust
+
+                                    <time class="latest-post-time" datetime="2016-01-02 20:15:00" pubdate>
+                                        02 Jan 2016
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2015/02/20/lean-startup.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Lean Start Up
+
+                                    <time class="latest-post-time" datetime="2015-02-20 07:27:13" pubdate>
+                                        20 Feb 2015
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2015/02/20/development-environment.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Development environment
+
+                                    <time class="latest-post-time" datetime="2015-02-20 07:27:13" pubdate>
+                                        20 Feb 2015
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2014/01/07/multi-factor-authentication.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Multi-factor authentication
+
+                                    <time class="latest-post-time" datetime="2014-01-07 09:37:00" pubdate>
+                                        07 Jan 2014
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2014/01/06/2013-in-review.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    2013 In Review
+
+                                    <time class="latest-post-time" datetime="2014-01-06 09:21:00" pubdate>
+                                        06 Jan 2014
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2013/09/01/generating-schema-graphs-with-sqlachemy-and-macports.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Generating schema graphs with SQLAlchemy and Macports
+
+                                    <time class="latest-post-time" datetime="2013-09-01 23:35:00" pubdate>
+                                        01 Sep 2013
+                                    </time>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </aside>
+                </div>
+
+            </div>
+
+            <footer>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="ribbon">
+                            <ul class="networks">
+                                <li class="network">
+                                    <a class="network-link" href="https://github.com/iszak">
+                                        <i class="network-icon icon-github-alt"></i>
+                                        GitHub
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="https://twitter.com/iszak">
+                                        <i class="network-icon icon-twitter"></i>
+                                        Twitter
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="https://plus.google.com/100069654061825702190">
+                                        <i class="network-icon icon-google-plus"></i>
+                                        Google+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span12">
+                        <p class="copyright">Copyright &copy; 2016 </p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-5068780-2']);
+                _gaq.push(['_setDomainName', 'iszak.net']);
+                _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Iszak Bryan</title>
+        <description>Web Application Developer</description>
+        <link>http://iszak.net/</link>
+        <atom:link href="http://iszak.net/feed.xml" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>Dabbling with rust</title>
+                <description>&lt;p&gt;I have been dabbling with the &lt;a href=&quot;https://www.rust-lang.org/&quot;&gt;rust programming language&lt;/a&gt; lately, it is quite refreshing compared to my work around high level programming langauges such as PHP, Ruby and JS. These are some of my thoughts on rust comnig from a high level programming language.&lt;/p&gt;
+
+&lt;h1 id=&quot;memory-management&quot;&gt;Memory management&lt;/h1&gt;
+&lt;p&gt;In high level programming languages rarely do you worry about memory management, I’m not talking about direct memory manipulation as this is often not possible but rather the life time of your variables and objects as they are usually freed by the garbage collector, on the odd occasion you may have a run longer program which uses an ever increasing amount of memory or one that uses large amounts of data.&lt;/p&gt;
+
+&lt;p&gt;From a rust perspective you need to understand the difference between a stack allocated variable and a heap allocated variable and although I have learned this from university rarely did I think about it when programming perhaps this make’s me a bad programmer but generally I left it to the programming language to determine the best location of my variable or object.&lt;/p&gt;
+
+&lt;h1 id=&quot;ownership&quot;&gt;Ownership&lt;/h1&gt;
+&lt;p&gt;Again when programming I didn’t think about the ownership of an object, of course I was aware that by passing a variable to a function that it may manipulate that, but I did not think about whether it should hold on to that reference and make changes in future invokations unless it was expected. I think this could be a potential issue if you’re not anticipating it e.g. Doctrine’s managed objects.&lt;/p&gt;
+
+&lt;p&gt;In rust you have to think careful about who owns what, so as to avoid a dangling pointers and instead it introduces a trivial concept of ownership where as only one context may own the variable at any given time and even then the ownership may have restrictions e.g. immutability. Given this I think it allows you to reason about the system a lot easier give&lt;/p&gt;
+
+&lt;h1 id=&quot;locks&quot;&gt;Locks&lt;/h1&gt;
+
+&lt;h1 id=&quot;options-and-results&quot;&gt;Options and results&lt;/h1&gt;
+
+</description>
+                <pubDate>Sat, 02 Jan 2016 20:15:00 +0800</pubDate>
+                <link>http://iszak.net/2016/01/02/working-with-rust.html</link>
+                <guid isPermaLink="true">http://iszak.net/2016/01/02/working-with-rust.html</guid>
+            </item>
+        
+            <item>
+                <title>Lean Start Up</title>
+                <description>&lt;p&gt;I read &lt;a href=&quot;http://theleanstartup.com/&quot;&gt;The Lean Startup&lt;/a&gt; a few weekends ago and it got me  excited for developing in a lean way, what is the lean way? Well the way I understood it, it was trying to fail as fast as you can so you can learn from those failings and proving what you’re doing matters with actionable metrics.&lt;/p&gt;
+
+&lt;p&gt;It was in general light on concrete processes but the theory has changed the way I approach working on my personal projects, before I strived for technical perfection before I would release it, I’ve realised this is a mistake as it meant I was developing in a silo for many months sometimes years, often building features no one wants. Now I aim to build the minimal to validate my hypothesis that users want this feature and back it up with the data.&lt;/p&gt;
+
+&lt;p&gt;The data side of things is new for me as I don’t specialise in analytics but it’s quite interesting to understand how you can prove something analytically with control groups. So I’ve started to read &lt;a href=&quot;http://leananalyticsbook.com/&quot;&gt;The Lean Analytics&lt;/a&gt; which is a book in The Lean Series and also ordered &lt;a href=&quot;http://runninglean.co/&quot;&gt;Running Lean&lt;/a&gt; which I may end up reviewing sometime.&lt;/p&gt;
+
+&lt;p&gt;Anyhow to sign off, if you haven’t read The Lean Startup, definitely read it, if you’ve read it but can’t remember it, I recommend you read it again.&lt;/p&gt;
+
+</description>
+                <pubDate>Fri, 20 Feb 2015 07:27:13 +0800</pubDate>
+                <link>http://iszak.net/2015/02/20/lean-startup.html</link>
+                <guid isPermaLink="true">http://iszak.net/2015/02/20/lean-startup.html</guid>
+            </item>
+        
+            <item>
+                <title>Development environment</title>
+                <description>&lt;p&gt;I’ve been spending a lot of time recently getting my development environment setup, I’ve found once I’ve learnt a better way to do things, I won’t want to go back to the old way. So when I learnt about Puppet, I didn’t want to go back to a shell script or manual installation. But these tools take a lot of investment to setup and get right, then you may find out about a complementing technology such as hiera or facter, which you then have to go back to the drawing board and re-iterate.&lt;/p&gt;
+
+&lt;p&gt;Finally I am satisfied with my development environment such that it’s easy to work on all the different technologies my projects use from static, node, ruby and php projects so I thought I’d share it on my blog.&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&quot;https://github.com/iszak/environment&quot;&gt;development environment&lt;/a&gt;; built with Vagrant, Packer, Puppet, Hiera.&lt;/p&gt;
+
+</description>
+                <pubDate>Fri, 20 Feb 2015 07:27:13 +0800</pubDate>
+                <link>http://iszak.net/2015/02/20/development-environment.html</link>
+                <guid isPermaLink="true">http://iszak.net/2015/02/20/development-environment.html</guid>
+            </item>
+        
+            <item>
+                <title>Multi-factor authentication</title>
+                <description>&lt;p&gt;I recently enabled multi-factor authentication for both my Google account and &lt;a href=&quot;https://lastpass.com/&quot;&gt;LastPass&lt;/a&gt; account, it’s amazing that I’ve held out for so long given the associated risk with losing either accounts. However after investigating multi-factor authentication solutions again, the backup options really sealed the deal, I don’t know if they recently added support for them or I simply didn’t invest enough time previously.&lt;/p&gt;
+
+&lt;p&gt;Google provides the ability to generate a collection of random numbers which can be used once as an authentication code, as well as the ability to use multiple phone numbers incase your number is inaccessible. For the applications which don’t yet support multi-factor authentication but uses a Google account, you can generate an application specific code.&lt;/p&gt;
+
+&lt;p&gt;LastPass uses Google for multi-factor authentication however supports many other provides including &lt;a href=&quot;https://www.yubico.com/&quot;&gt;YubiKey&lt;/a&gt;, &lt;a href=&quot;https://www.toopher.com/&quot;&gt;Toopher&lt;/a&gt;, &lt;a href=&quot;https://www.duosecurity.com/&quot;&gt;Duo Security&lt;/a&gt;, &lt;a href=&quot;https://gettransakt.com/&quot;&gt;Transakt&lt;/a&gt; all of which I’ve never heard of before. It also allows you to generate a one time password which will grant access to your account if you forget your password. Finally you can export your passwords to CSV and print it off if you’re using randomly generated passwords which you don’t remember.&lt;/p&gt;
+
+&lt;p&gt;In case you don’t use multi-factor authentication I highly recommend it, I also recommend using LastPass as the idea of using unique passwords for multiple sites becomes cumbersome so I usually end up defaulting to five passwords with varying levels of entropy. In case you don’t like the idea of storing your passwords in the “cloud” I hear &lt;a href=&quot;https://www.yubico.com/&quot;&gt;1Password&lt;/a&gt; is also very good.&lt;/p&gt;
+
+</description>
+                <pubDate>Tue, 07 Jan 2014 09:37:00 +0800</pubDate>
+                <link>http://iszak.net/2014/01/07/multi-factor-authentication.html</link>
+                <guid isPermaLink="true">http://iszak.net/2014/01/07/multi-factor-authentication.html</guid>
+            </item>
+        
+            <item>
+                <title>2013 In Review</title>
+                <description>&lt;p&gt;This is the first time I’ve written a review of the previous year, possibly because I don’t write often as you can see by the lack of blog posts. I decided to do it so I evaluate last year and see if this year I have achieved the goals I have set out to do, so here is 2013 in a review.&lt;/p&gt;
+
+&lt;h4 id=&quot;mentor&quot;&gt;Mentor&lt;/h4&gt;
+&lt;p&gt;For the first time in my career I found myself without a mentor, someone who wasn’t just superior by rank but also knowledge. This was due to the fact that the development manager left and he was not replaced, instead two specialised lead developers were chosen to fill his role. Unfortunately this didn’t work out perfectly as certain areas of which he managed did not get picked up and therefore became unmanaged with no one wanting to take ownership of it.&lt;/p&gt;
+
+&lt;p&gt;Although I do discuss ideas and problems with the lead developers as well as the other developers, it is not often that I can learn something new from them of which I did with the development manager. This is disappointing as I feel when you have someone who you learn from frequently, you have an accelerated development, so this was hard for me. Instead I have had to search more for knowledge else where be it blogs, articles or even podcasts.&lt;/p&gt;
+
+&lt;h4 id=&quot;side-projects&quot;&gt;Side projects&lt;/h4&gt;
+&lt;p&gt;I started a few side projects in 2013, a game which was a 2D top down RPG, a mobile application to track 1001 beers to try before you die, a &lt;a href=&quot;http://www.macports.org/&quot;&gt;macaw&lt;/a&gt;-esque tool and finally a collaboration between some of the developers at work to create a idea crowdsourcing platform.&lt;/p&gt;
+
+&lt;p&gt;I am disappointed with how little I’ve achieved on side projects this year, although valuable knowledge was gained by developing them I would have liked to release something. I did manage to get the landing page of the idea crowdsourcing platform completed but that’s hardly an achievement.&lt;/p&gt;
+
+&lt;h4 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h4&gt;
+&lt;p&gt;Towards the end of the year I realised that not all the developers had the same development environment and because of this, occasionally we got the “it works on my machine” problem. We normally use a guide to setup our development environment with &lt;a href=&quot;http://www.macports.org/&quot;&gt;Macports&lt;/a&gt; but this is quite long, tedious and error prone so some developers opted for &lt;a href=&quot;http://www.mamp.info/&quot;&gt;MAMP&lt;/a&gt;. I wanted an easier solution, so I started looking for one, I found &lt;a href=&quot;http://www.vagrantup.com/&quot;&gt;Vagrant&lt;/a&gt; and decided to start playing around with it.&lt;/p&gt;
+
+&lt;p&gt;After writing a thousand line plus bash script to provision my virtual machine I realised this wasn’t portable as it required the developers to have intricate knowledge of all the commands, what I needed was a domain specific language. So I did some investigation and after a discussion with the IT team it was decided on &lt;a href=&quot;http://puppetlabs.com/&quot;&gt;Puppet&lt;/a&gt; because of the support and maturity.&lt;/p&gt;
+
+&lt;p&gt;Again, I invested many hours learning Puppet and writing manifests and classes to build our development environment and finally it’s in a good enough state to deploy across the developments. We’ve got a few developers using it however I am unsure whether I will invest my time in it with the current state of providing hosting undecided.&lt;/p&gt;
+
+&lt;h3 id=&quot;forward&quot;&gt;Forward&lt;/h3&gt;
+
+&lt;h4 id=&quot;side-projects-1&quot;&gt;Side Projects&lt;/h4&gt;
+&lt;p&gt;I want to see at least one side project launched this year and a landing page does not count. I know it’s not hard, but I am a perfectionist, I want to ensure it’s perfect but hopefully my reading will help me get over this problem.&lt;/p&gt;
+
+&lt;h4 id=&quot;development-environment-1&quot;&gt;Development Environment&lt;/h4&gt;
+&lt;p&gt;I want to further improve our development environment by using Packer to build a pre-configured base and also to ensure our bases are all the same. I am half way through this with support for building Vagrant boxes, I just need to add the Amazon support and we should be done.&lt;/p&gt;
+
+&lt;p&gt;I also want to investigate using &lt;a href=&quot;http://www.docker.io/&quot;&gt;Docker&lt;/a&gt; as there is some work being done to make it work nicely on OS X, so we’ll see how that goes, if it provides to be a viable alternative to provisioning an entire VM it’ll mean less overhead.&lt;/p&gt;
+
+&lt;h3 id=&quot;reading&quot;&gt;Reading&lt;/h3&gt;
+&lt;p&gt;One of my personal goals for this year is to read twelve books in the year, I know it’s not a lot to some people but keep in mind I read no books last year, I sourced all my information online. I will be particularly focusing on non-fiction but I may get a chance to read a few fiction on the way, the first book I’m reading is &lt;a href=&quot;http://37signals.com/rework/&quot;&gt;Rework by 37 Signals&lt;/a&gt; so maybe I’ll do a review on that&lt;/p&gt;
+
+</description>
+                <pubDate>Mon, 06 Jan 2014 09:21:00 +0800</pubDate>
+                <link>http://iszak.net/2014/01/06/2013-in-review.html</link>
+                <guid isPermaLink="true">http://iszak.net/2014/01/06/2013-in-review.html</guid>
+            </item>
+        
+            <item>
+                <title>Generating schema graphs with SQLAlchemy and Macports</title>
+                <description>&lt;p&gt;For a while now I’ve been looking for a tool which I could point to a database
+and it will generate a schema graph, now I usually use &lt;a href=&quot;http://www.navicat.com/products/navicat-data-modeler&quot;&gt;Navicat Data Modeler&lt;/a&gt;
+to initially design schemas which has this functionality but costs a premium
+of which I could not justify. So I went looking for an open source alternative,
+unfortunately most of the dependencies that these open source tools required
+weren’t available in the &lt;a href=&quot;http://www.macports.org/&quot;&gt;MacPorts&lt;/a&gt; repository or I had difficulties
+installing them.&lt;/p&gt;
+
+&lt;p&gt;Finally someone recommended today &lt;a href=&quot;http://www.sqlalchemy.org/&quot;&gt;SQL Alchemy&lt;/a&gt; with
+&lt;a href=&quot;http://www.sqlalchemy.org/trac/wiki/UsageRecipes/SchemaDisplay&quot;&gt;SQL Alchemy Schema Display&lt;/a&gt; which I have heard of before in my brief
+encounter in the Python world and I knew it was a solid choice. I was sold and
+so these are the steps I took to get it installed on my setup&lt;/p&gt;
+
+&lt;p&gt;Please note this guide makes the assumption you’re using &lt;strong&gt;MacPorts on OS X with Python 2.7 and Pip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;graphviz&quot;&gt;GraphViz&lt;/h3&gt;
+&lt;p&gt;SQL Alchemy depends on &lt;a href=&quot;http://www.graphviz.org/&quot;&gt;GraphViz&lt;/a&gt;, which is available in MacPorts, but for some
+reason it requires you to deactivate “nawk” port to install it, why it couldn’t do
+this automatically and then re-active it is beyond me, perhaps it’s a bug. If
+you don’t have nawk you can simply run sudo port install graphviz.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo port install nawk
+    sudo port deactivate nawk
+    sudo port install graphviz
+    sudo port activate nawk&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;database-support&quot;&gt;Database support&lt;/h3&gt;
+&lt;p&gt;Depending on what database you want to connect to you will need to install the
+required driver, I use MySQL at my place of employment but PostgreSQL personally
+so I needed both.&lt;/p&gt;
+
+&lt;h4 id=&quot;mysql&quot;&gt;MySQL&lt;/h4&gt;
+&lt;p&gt;To enable MySQL support you need mysql_config in your $PATH variable, in my case
+MacPorts names mysql_config to mysql_config5 to possibly prevent conflicts. An
+alias may work, but I decided to create a symbolic link, if anyone knows of a
+better solution let me know.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo ln -s /usr/local/bin/mysql_config /opt/local/bin/mysql_config5
+    sudo pip install mysql-python&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;postgresql&quot;&gt;PostgreSQL&lt;/h4&gt;
+&lt;p&gt;To enable PostgreSQL support you need to install this pip module, no issues.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip install psycopg2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;pyparsing&quot;&gt;PyParsing&lt;/h3&gt;
+&lt;p&gt;Another dependency is pyparsing, however by default MacPorts installs the latest
+which is 2.x and will not work with Python 2.7 it seems.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip uninstall pyparsing
+    sudo pip install pyparsing==1.5.7&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;pydot&quot;&gt;PyDot&lt;/h3&gt;
+&lt;p&gt;SQL Alchemy Schema Display depends directly on PyDot but PyDot indirectly depends
+on PyParsing so we need both.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip install pydot&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;sqlalchemy&quot;&gt;SqlAlchemy&lt;/h3&gt;
+&lt;p&gt;Finally, the tool that will use all these components.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip install sqlalchemy
+    sudo pip install sqlalchemy_schemadisplay&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;generating&quot;&gt;Generating&lt;/h3&gt;
+&lt;p&gt;Now to generate an image of your schema you need to provide a host, engine,
+database name, username and password. I’ve created a sample script below which
+I use just populate your details and run “python /path/to/file.py”&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;from sqlalchemy import MetaData
+    from sqlalchemy_schemadisplay import create_schema_graph
+
+    # Database
+    host     = &amp;#39;localhost&amp;#39;
+    engine   = &amp;#39;postgresql&amp;#39;
+    database = &amp;#39;database&amp;#39;
+    username = &amp;#39;username&amp;#39;
+    password = &amp;#39;password&amp;#39;
+
+    # General
+    data_types = False
+    indexes    = False
+
+
+    # Generation
+    dsn = engine + &amp;#39;://&amp;#39; + username + &amp;#39;:&amp;#39; + password + &amp;#39;@&amp;#39; + host + &amp;#39;/&amp;#39; + database;
+
+    graph = create_schema_graph(
+      metadata       = MetaData(dsn),
+      show_datatypes = data_types,
+      show_indexes   = indexes
+    )
+
+    graph.write_png(&amp;#39;schema.png&amp;#39;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;That’s it, you’ve now got an image of your database schema with relationships
+and indexes or data types depending on your configuration. Hopefully I didn’t
+miss any of the dependencies as when I was installing this it was a lot of trial
+and error. If you do spot an error contact me on Twitter and I’ll happily edit
+it with accreditation.&lt;/p&gt;
+
+</description>
+                <pubDate>Sun, 01 Sep 2013 23:35:00 +0800</pubDate>
+                <link>http://iszak.net/2013/09/01/generating-schema-graphs-with-sqlachemy-and-macports.html</link>
+                <guid isPermaLink="true">http://iszak.net/2013/09/01/generating-schema-graphs-with-sqlachemy-and-macports.html</guid>
+            </item>
+        
+            <item>
+                <title>Why mobile web apps are slow</title>
+                <description>&lt;p&gt;Definitely recommend reading this article (&lt;strong&gt;hint&lt;/strong&gt;: it’s long, but worth it),
+it talks more from the perspective of intense mobile web apps (image/video
+processing, games). No, not those apps that are essentially a website in a
+&lt;a href=&quot;http://phonegap.com/&quot;&gt;PhoneGap&lt;/a&gt;/&lt;a href=&quot;http://cordova.apache.org/&quot;&gt;Cordova&lt;/a&gt; wrapper sprinkled with some of their APIs.&lt;/p&gt;
+
+&lt;p&gt;That said, I won’t stop using JavaScript to build mobile web applications, but I
+am now even more conscious of memory and CPU usage and limits.&lt;/p&gt;
+
+</description>
+                <pubDate>Sat, 13 Jul 2013 20:46:35 +0800</pubDate>
+                <link>http://iszak.net/2013/07/13/why-mobile-web-apps-are-slow.html</link>
+                <guid isPermaLink="true">http://iszak.net/2013/07/13/why-mobile-web-apps-are-slow.html</guid>
+            </item>
+        
+            <item>
+                <title>Google Reader alternative</title>
+                <description>&lt;p&gt;Anyone who is still looking for a Google Reader alternative I recommend
+&lt;a href=&quot;http://www.feedly.com/&quot;&gt;Feedly&lt;/a&gt;. The reason behind this is it seems to have the most cross-platform
+implementations and a good community behind it. That’s not to say something like
+&lt;a href=&quot;http://theoldreader.com/&quot;&gt;The Old Reader&lt;/a&gt; isn’t any good but it’s lack of cross platform
+implementations bothered me. That has now changed with a few third parties using
+their API.&lt;/p&gt;
+
+&lt;p&gt;The only gripe I have with Feedly is that images can sometimes load slow,
+perhaps it’s my connection. But I would gladly pay $5 USD / month to receive
+a better service which I’m waiting to be offered.&lt;/p&gt;
+
+&lt;p&gt;Speaking of feeds, &lt;a href=&quot;/feed.xml&quot;&gt;I also have a feed&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Fri, 12 Jul 2013 04:44:17 +0800</pubDate>
+                <link>http://iszak.net/2013/07/12/google-reader-alternative.html</link>
+                <guid isPermaLink="true">http://iszak.net/2013/07/12/google-reader-alternative.html</guid>
+            </item>
+        
+            <item>
+                <title>Back to blogging</title>
+                <description>&lt;p&gt;I’ve finally found some time to rebuild my blog as I’m on holiday, it’s been
+through many phases, once static HTML, then WordPress, then Tumblr and finally
+back to static HTML, kind of. I’m using &lt;a href=&quot;http://www.jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; which compiles to static HTML
+definitely recommend checking it out if you want a platform that gets out of
+your way.&lt;/p&gt;
+
+&lt;p&gt;As for the design, this is actually one I used circa 2010 but it has been
+rebuilt to use modern web practices such as mobile first, responsive web design
+with sprinklings of CSS3. That said, I haven’t actively tested it on legacy
+browsers and probably won’t. This design is still a work in progress.&lt;/p&gt;
+
+</description>
+                <pubDate>Fri, 12 Jul 2013 02:59:14 +0800</pubDate>
+                <link>http://iszak.net/2013/07/12/back-to-blogging.html</link>
+                <guid isPermaLink="true">http://iszak.net/2013/07/12/back-to-blogging.html</guid>
+            </item>
+        
+    </channel>
+</rss>

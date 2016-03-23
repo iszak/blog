@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Iszak Bryan">
+
+        <link rel="alternate" type="application/rss+xml" title="Iszak Bryan" href="http://iszak.net/feed.xml">
+
+        <link type="text/css" rel="stylesheet" href="/assets/vendor.css">
+        <link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+        
+        <title>Iszak Bryan - Web Application Developer</title>
+        
+    </head>
+
+    <body>
+
+
+
+        <div class="container-fluid site">
+            <header class="row-fluid header">
+                <div class="span4 title" role="banner">
+                    <h1 class="title-name">Iszak Bryan</h1>
+                    <h2 class="title-tagline">Web Application Developer</h2>
+                </div>
+
+
+                <div class="span8">
+                    <nav class="nav" role="navigation">
+                        <ul class="nav-list">
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="/">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="about.html">
+                                    About
+                                </a>
+                            </li>
+
+                            <li class="nav-list-item">
+                                <a class="nav-list-item-link" href="contact.html">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+
+
+            <div class="row-fluid">
+                <main class="span8 main" role="main">
+
+<article class="post">
+    <h3 class="post-title">
+
+        <a href="http://iszak.net/2016/01/02/working-with-rust.html">
+
+            Dabbling with rust
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>I have been dabbling with the <a href="https://www.rust-lang.org/">rust programming language</a> lately, it is quite refreshing compared to my work around high level programming langauges such as PHP, Ruby and JS. These are some of my thoughts on rust comnig from a high level programming language.</p>
+
+<h1 id="memory-management">Memory management</h1>
+<p>In high level programming languages rarely do you worry about memory management, I’m not talking about direct memory manipulation as this is often not possible but rather the life time of your variables and objects as they are usually freed by the garbage collector, on the odd occasion you may have a run longer program which uses an ever increasing amount of memory or one that uses large amounts of data.</p>
+
+<p>From a rust perspective you need to understand the difference between a stack allocated variable and a heap allocated variable and although I have learned this from university rarely did I think about it when programming perhaps this make’s me a bad programmer but generally I left it to the programming language to determine the best location of my variable or object.</p>
+
+<h1 id="ownership">Ownership</h1>
+<p>Again when programming I didn’t think about the ownership of an object, of course I was aware that by passing a variable to a function that it may manipulate that, but I did not think about whether it should hold on to that reference and make changes in future invokations unless it was expected. I think this could be a potential issue if you’re not anticipating it e.g. Doctrine’s managed objects.</p>
+
+<p>In rust you have to think careful about who owns what, so as to avoid a dangling pointers and instead it introduces a trivial concept of ownership where as only one context may own the variable at any given time and even then the ownership may have restrictions e.g. immutability. Given this I think it allows you to reason about the system a lot easier give</p>
+
+<h1 id="locks">Locks</h1>
+
+<h1 id="options-and-results">Options and results</h1>
+
+
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="2016-01-02 20:15:00">
+            Published on 02 Jan 2016
+        </time>
+    </div>
+</article>
+
+<article class="post">
+    <h3 class="post-title">
+
+        <a href="http://iszak.net/2015/02/20/lean-startup.html">
+
+            Lean Start Up
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>I read <a href="http://theleanstartup.com/">The Lean Startup</a> a few weekends ago and it got me  excited for developing in a lean way, what is the lean way? Well the way I understood it, it was trying to fail as fast as you can so you can learn from those failings and proving what you’re doing matters with actionable metrics.</p>
+
+<p>It was in general light on concrete processes but the theory has changed the way I approach working on my personal projects, before I strived for technical perfection before I would release it, I’ve realised this is a mistake as it meant I was developing in a silo for many months sometimes years, often building features no one wants. Now I aim to build the minimal to validate my hypothesis that users want this feature and back it up with the data.</p>
+
+<p>The data side of things is new for me as I don’t specialise in analytics but it’s quite interesting to understand how you can prove something analytically with control groups. So I’ve started to read <a href="http://leananalyticsbook.com/">The Lean Analytics</a> which is a book in The Lean Series and also ordered <a href="http://runninglean.co/">Running Lean</a> which I may end up reviewing sometime.</p>
+
+<p>Anyhow to sign off, if you haven’t read The Lean Startup, definitely read it, if you’ve read it but can’t remember it, I recommend you read it again.</p>
+
+
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="2015-02-20 07:27:13">
+            Published on 20 Feb 2015
+        </time>
+    </div>
+</article>
+
+<article class="post">
+    <h3 class="post-title">
+
+        <a href="http://iszak.net/2015/02/20/development-environment.html">
+
+            Development environment
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>I’ve been spending a lot of time recently getting my development environment setup, I’ve found once I’ve learnt a better way to do things, I won’t want to go back to the old way. So when I learnt about Puppet, I didn’t want to go back to a shell script or manual installation. But these tools take a lot of investment to setup and get right, then you may find out about a complementing technology such as hiera or facter, which you then have to go back to the drawing board and re-iterate.</p>
+
+<p>Finally I am satisfied with my development environment such that it’s easy to work on all the different technologies my projects use from static, node, ruby and php projects so I thought I’d share it on my blog.</p>
+
+<p>My <a href="https://github.com/iszak/environment">development environment</a>; built with Vagrant, Packer, Puppet, Hiera.</p>
+
+
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="2015-02-20 07:27:13">
+            Published on 20 Feb 2015
+        </time>
+    </div>
+</article>
+
+<article class="post">
+    <h3 class="post-title">
+
+        <a href="http://iszak.net/2014/01/07/multi-factor-authentication.html">
+
+            Multi-factor authentication
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>I recently enabled multi-factor authentication for both my Google account and <a href="https://lastpass.com/">LastPass</a> account, it’s amazing that I’ve held out for so long given the associated risk with losing either accounts. However after investigating multi-factor authentication solutions again, the backup options really sealed the deal, I don’t know if they recently added support for them or I simply didn’t invest enough time previously.</p>
+
+<p>Google provides the ability to generate a collection of random numbers which can be used once as an authentication code, as well as the ability to use multiple phone numbers incase your number is inaccessible. For the applications which don’t yet support multi-factor authentication but uses a Google account, you can generate an application specific code.</p>
+
+<p>LastPass uses Google for multi-factor authentication however supports many other provides including <a href="https://www.yubico.com/">YubiKey</a>, <a href="https://www.toopher.com/">Toopher</a>, <a href="https://www.duosecurity.com/">Duo Security</a>, <a href="https://gettransakt.com/">Transakt</a> all of which I’ve never heard of before. It also allows you to generate a one time password which will grant access to your account if you forget your password. Finally you can export your passwords to CSV and print it off if you’re using randomly generated passwords which you don’t remember.</p>
+
+<p>In case you don’t use multi-factor authentication I highly recommend it, I also recommend using LastPass as the idea of using unique passwords for multiple sites becomes cumbersome so I usually end up defaulting to five passwords with varying levels of entropy. In case you don’t like the idea of storing your passwords in the “cloud” I hear <a href="https://www.yubico.com/">1Password</a> is also very good.</p>
+
+
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="2014-01-07 09:37:00">
+            Published on 07 Jan 2014
+        </time>
+    </div>
+</article>
+
+<article class="post">
+    <h3 class="post-title">
+
+        <a href="http://iszak.net/2014/01/06/2013-in-review.html">
+
+            2013 In Review
+        </a>
+    </h3>
+
+    <div class="post-content">
+<p>This is the first time I’ve written a review of the previous year, possibly because I don’t write often as you can see by the lack of blog posts. I decided to do it so I evaluate last year and see if this year I have achieved the goals I have set out to do, so here is 2013 in a review.</p>
+
+<h4 id="mentor">Mentor</h4>
+<p>For the first time in my career I found myself without a mentor, someone who wasn’t just superior by rank but also knowledge. This was due to the fact that the development manager left and he was not replaced, instead two specialised lead developers were chosen to fill his role. Unfortunately this didn’t work out perfectly as certain areas of which he managed did not get picked up and therefore became unmanaged with no one wanting to take ownership of it.</p>
+
+<p>Although I do discuss ideas and problems with the lead developers as well as the other developers, it is not often that I can learn something new from them of which I did with the development manager. This is disappointing as I feel when you have someone who you learn from frequently, you have an accelerated development, so this was hard for me. Instead I have had to search more for knowledge else where be it blogs, articles or even podcasts.</p>
+
+<h4 id="side-projects">Side projects</h4>
+<p>I started a few side projects in 2013, a game which was a 2D top down RPG, a mobile application to track 1001 beers to try before you die, a <a href="http://www.macports.org/">macaw</a>-esque tool and finally a collaboration between some of the developers at work to create a idea crowdsourcing platform.</p>
+
+<p>I am disappointed with how little I’ve achieved on side projects this year, although valuable knowledge was gained by developing them I would have liked to release something. I did manage to get the landing page of the idea crowdsourcing platform completed but that’s hardly an achievement.</p>
+
+<h4 id="development-environment">Development Environment</h4>
+<p>Towards the end of the year I realised that not all the developers had the same development environment and because of this, occasionally we got the “it works on my machine” problem. We normally use a guide to setup our development environment with <a href="http://www.macports.org/">Macports</a> but this is quite long, tedious and error prone so some developers opted for <a href="http://www.mamp.info/">MAMP</a>. I wanted an easier solution, so I started looking for one, I found <a href="http://www.vagrantup.com/">Vagrant</a> and decided to start playing around with it.</p>
+
+<p>After writing a thousand line plus bash script to provision my virtual machine I realised this wasn’t portable as it required the developers to have intricate knowledge of all the commands, what I needed was a domain specific language. So I did some investigation and after a discussion with the IT team it was decided on <a href="http://puppetlabs.com/">Puppet</a> because of the support and maturity.</p>
+
+<p>Again, I invested many hours learning Puppet and writing manifests and classes to build our development environment and finally it’s in a good enough state to deploy across the developments. We’ve got a few developers using it however I am unsure whether I will invest my time in it with the current state of providing hosting undecided.</p>
+
+<h3 id="forward">Forward</h3>
+
+<h4 id="side-projects-1">Side Projects</h4>
+<p>I want to see at least one side project launched this year and a landing page does not count. I know it’s not hard, but I am a perfectionist, I want to ensure it’s perfect but hopefully my reading will help me get over this problem.</p>
+
+<h4 id="development-environment-1">Development Environment</h4>
+<p>I want to further improve our development environment by using Packer to build a pre-configured base and also to ensure our bases are all the same. I am half way through this with support for building Vagrant boxes, I just need to add the Amazon support and we should be done.</p>
+
+<p>I also want to investigate using <a href="http://www.docker.io/">Docker</a> as there is some work being done to make it work nicely on OS X, so we’ll see how that goes, if it provides to be a viable alternative to provisioning an entire VM it’ll mean less overhead.</p>
+
+<h3 id="reading">Reading</h3>
+<p>One of my personal goals for this year is to read twelve books in the year, I know it’s not a lot to some people but keep in mind I read no books last year, I sourced all my information online. I will be particularly focusing on non-fiction but I may get a chance to read a few fiction on the way, the first book I’m reading is <a href="http://37signals.com/rework/">Rework by 37 Signals</a> so maybe I’ll do a review on that</p>
+
+
+    </div>
+
+    <div class="post-meta">
+        <time class="post-time" datetime="2014-01-06 09:21:00">
+            Published on 06 Jan 2014
+        </time>
+    </div>
+</article>
+
+
+                </main>
+
+
+                <div class="span4">
+                    <aside class="latest">
+                        <h4 class="latest-title">Latest blog posts</h4>
+                        <ul class="latest-posts">
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2016/01/02/working-with-rust.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Dabbling with rust
+
+                                    <time class="latest-post-time" datetime="2016-01-02 20:15:00" pubdate>
+                                        02 Jan 2016
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2015/02/20/lean-startup.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Lean Start Up
+
+                                    <time class="latest-post-time" datetime="2015-02-20 07:27:13" pubdate>
+                                        20 Feb 2015
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2015/02/20/development-environment.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Development environment
+
+                                    <time class="latest-post-time" datetime="2015-02-20 07:27:13" pubdate>
+                                        20 Feb 2015
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2014/01/07/multi-factor-authentication.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Multi-factor authentication
+
+                                    <time class="latest-post-time" datetime="2014-01-07 09:37:00" pubdate>
+                                        07 Jan 2014
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2014/01/06/2013-in-review.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    2013 In Review
+
+                                    <time class="latest-post-time" datetime="2014-01-06 09:21:00" pubdate>
+                                        06 Jan 2014
+                                    </time>
+                                </a>
+                            </li>
+
+                            <li class="latest-post">
+
+                                <a class="latest-post-link" href="/2013/09/01/generating-schema-graphs-with-sqlachemy-and-macports.html">
+
+
+
+                                    <i class="latest-post-icon icon-file-text-alt"></i>
+
+
+
+
+
+                                    Generating schema graphs with SQLAlchemy and Macports
+
+                                    <time class="latest-post-time" datetime="2013-09-01 23:35:00" pubdate>
+                                        01 Sep 2013
+                                    </time>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </aside>
+                </div>
+
+            </div>
+
+            <footer>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="ribbon">
+                            <ul class="networks">
+                                <li class="network">
+                                    <a class="network-link" href="https://github.com/iszak">
+                                        <i class="network-icon icon-github-alt"></i>
+                                        GitHub
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="https://twitter.com/iszak">
+                                        <i class="network-icon icon-twitter"></i>
+                                        Twitter
+                                    </a>
+                                </li>
+                                <li class="network">
+                                    <a class="network-link" href="https://plus.google.com/100069654061825702190">
+                                        <i class="network-icon icon-google-plus"></i>
+                                        Google+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span12">
+                        <p class="copyright">Copyright &copy; 2016 </p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-5068780-2']);
+                _gaq.push(['_setDomainName', 'iszak.net']);
+                _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    </body>
+</html>
